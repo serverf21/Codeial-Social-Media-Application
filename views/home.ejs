@@ -19,6 +19,8 @@
       </form>
     </div>
     <% } %>
+    <br /><br />
+    <h3>Posts</h3>
     <div id="posts-list-container" class="posts-list">
       <% for(i of posts){ %> <%- include("_posts") -%> <% } %>
     </div>
@@ -91,6 +93,15 @@
   new ChatEngine("user-chat-box", "<%= locals.user.email %>");
 </script>
 <% } %>
-<script src="<%= assetPath('javascript/home_posts.js') %>"></script>
-<script src="<%= assetPath('javascript/posts_comments.js') %>"></script>
-<script src="<%= assetPath('javascript/toggle-likes.js') %>"></script>
+<script
+  src="<%= assetPath('javascript/home_posts.js') %>"
+  type="text/javascript"
+></script>
+<script
+  src="<%= assetPath('javascript/posts_comments.js') %>"
+  type="text/javascript"
+></script>
+<script
+  src="<%= assetPath('javascript/toggle-likes.js') %>"
+  type="text/javascript"
+></script>
