@@ -17,6 +17,7 @@ Technology and Tools utilized -
 9. Deployment - AWS EC2 instance (t3.micro)
 10. Process Automation - GulpJS
 11. Simplified HTTP requests logging using - Morgan NPM logger
+12. JS Conversions at some points using - Babel
 
 Preview - 
 
