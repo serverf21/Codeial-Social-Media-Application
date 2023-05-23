@@ -15,3 +15,8 @@ Technology and Tools utilized -
 7. Chat Server - Socket IO
 8. DOM Manipulation and requests - AJAX and JQuery
 9. Deployment - AWS EC2 instance (t3.micro)
+
+Preview - 
+
+<img width="1273" alt="image" src="https://github.com/serverf21/Codeial-Social-Media-Application/assets/30923855/96021a3b-96db-4c51-95d2-ea877a66d3f1">
+
