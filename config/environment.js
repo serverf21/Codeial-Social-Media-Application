@@ -30,8 +30,8 @@ const development = {
       pass: "*****"
     }
   },
-  google_client_id: "301378759041-u8ioi94va6g3gcqrnq5saq2mj5vi4a02.apps.googleusercontent.com",
-  google_client_secret: "6g_OeHrQWAafGG8WBeqDSXu8",
+  google_client_id: process.env.GOOGLE_CLIENT_ID,
+  google_client_secret: process.env.GOOGLE_CLIENT_SECRET,
   google_callback_url: "http://localhost:100/users/auth/google/callback",
   jwt_secret: process.env.JWT_SECRET,
   morgan: {
