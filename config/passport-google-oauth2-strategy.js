@@ -7,8 +7,8 @@ const env = require("./environment");
 
 
 passport.use(new GoogleStrategy({
-    clientID: "379038194751-gpqg35qem9uhm7h6p4060qk9iffoa3t1.apps.googleusercontent.com",
-    clientSecret: "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",
+    clientID: process.env.clientID,
+    clientSecret: process.env.clientSecret,
     callbackURL: "http://localhost:8000/users/auth/google/callback"
 }, async function (accessToken, refreshToken, profile, done) {
     try {
