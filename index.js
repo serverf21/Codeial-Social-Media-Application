@@ -62,8 +62,8 @@ const prod_assets = require("./config/view_helpers")(app);
 if (env.name == "development") {
   app.use(
     sassMiddleware({
-      src: path.join(__dirname, env.assets_path, "scss"),
-      dest: path.join(__dirname, env.assets_path, "css"),
+      src: path.join(__dirname, './assets', "scss"),
+      dest: path.join(__dirname, './assets', "css"),
       debug: true,
       outputStyle: "extended",
       prefix: "/css", // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
@@ -75,14 +75,14 @@ if (env.name == "development") {
 app.use(morgan(env.morgan.mode, env.morgan.options));
 
 //10)Setting middleware for decoding the post request
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
 //After requiring cookies we have to use this middleware for using cookies
 app.use(cookieParser());
 
 //7)Linking static files
-app.use(express.static(path.join(__dirname, env.assets_path)));
-console.log(__dirname + "/" + env.assets_path);
+app.use(express.static(path.join(__dirname, './assets')));
+console.log(__dirname + "/" + './assets');
 
 app.use(expressLayouts);
 

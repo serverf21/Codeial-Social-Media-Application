@@ -1,22 +1,38 @@
-
-<link rel="stylesheet" type="text/css" href="<%= assetPath('css/chat-box.css') %>">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="<%= assetPath('css/chat-box.css') %>"
+/>
 
 <% if(locals.user) { %>
+<button class="open-button" onclick="openForm()">Chat</button>
+<div id="user-chat-box" class="myForm">
+  <!-- Yet to add js and style -->
+  <input
+    id="popup-WrapperMini"
+    type="button"
+    onclick="closeForm();"
+    value="-"
+  />
+  <ul id="chat-messages-list">
+    <li class="other-message"><span>Other's Message</span></li>
+    <li class="self-message"><span>Self Message</span></li>
+  </ul>
 
-    <div id="user-chat-box">
-
-        <ul id="chat-messages-list">
-            <li class="other-message">
-            </li>
-            <li class="self-message">
-            </li>
-        </ul>
-
-        <div id="chat-message-input-container">
-            <input id="chat-message-input" placeholder="Type message here">
-            <button id="send-message">Send</button>
-        </div>
-
-    </div>
+  <div id="chat-message-input-container">
+    <input id="chat-message-input" placeholder="Type message here" />
+    <button id="send-message">Send</button>
+  </div>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+</div>
 
 <% } %>
+
+<script>
+  function openForm() {
+    document.getElementById("user-chat-box").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("user-chat-box").style.display = "none";
+  }
+</script>

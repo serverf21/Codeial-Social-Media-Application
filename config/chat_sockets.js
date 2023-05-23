@@ -1,33 +1,42 @@
-module.exports.chatSockets = function(chatServer){
+module.exports.chatSockets = function (chatServer) {
 
     //Requiring socket.io for chat engine
-     var socketio = require("socket.io")(chatServer);
+    var socketio = require("socket.io")(chatServer, {
+        cors: {
+            origin: "http://localhost:8000",
+            methods: ["GET", "POST"],
+            allowedHeaders: ["my-custom-header"],
+            transports: ['websocket', 'polling'],
+            credentials: true
+        },
+        allowEIO3: true
+    });
 
-     //Recieving request for connecting socket and acknowledging the connection
-     socketio.sockets.on("connection" , function(socket){
-         console.log("new connection recieved" , socket.id);
+    //Recieving request for connecting socket and acknowledging the connection
+    socketio.sockets.on("connection", function (socket) {
+        console.log("new connection recieved", socket.id);
 
-         socket.on("disconnect" , function(){
-             console.log("Socket disconnected");
-         })
+        socket.on("disconnect", function () {
+            console.log("Socket disconnected");
+        })
 
-         //Receiving request for joining
-         socket.on("join_room" , function(data){
-             console.log("Joining request received" , data);
+        //Receiving request for joining
+        socket.on("join_room", function (data) {
+            console.log("Joining request received", data);
 
-             //Joined the user to the chat room
-             socket.join(data.chatRoom);
+            //Joined the user to the chat room
+            socket.join(data.chatRoom);
 
-             //Acknowledging all members in the that chat room that new user joined
-             socketio.in(data.chatRoom).emit("user_joined" , data);
-         })
+            //Acknowledging all members in the that chat room that new user joined
+            socketio.in(data.chatRoom).emit("user_joined", data);
+        })
 
-         //Emitting receive messsage event when handled send message
-         socket.on("send_message" , function(data){
-             console.log("Send message request received");
-            socketio.in(data.chatRoom).emit("receive_msg" , data);
-         })
-         
-     })
+        //Emitting receive messsage event when handled send message
+        socket.on("send_message", function (data) {
+            console.log("Send message request received");
+            socketio.in(data.chatRoom).emit("receive_msg", data);
+        })
+
+    })
 
 }

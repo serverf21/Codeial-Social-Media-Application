@@ -21,14 +21,14 @@ passport.use(
       User.findOne({ email: email })
         .then(function (user) {
           if (!user || user.password !== password) {
-            req.flash('error', 'Invalid Username/Password');
+            request.flash('error', 'Invalid Username/Password');
             return done(null, false);
           }
 
           return done(null, user);
         })
         .catch(function (err) {
-          req.flash('error', err);
+          request.flash('error', err);
           return done(err);
         });
     }

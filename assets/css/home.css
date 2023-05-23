@@ -1,7 +1,7 @@
 .home {
   padding: 20px 50px;
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: 0 auto; }
 
 .home .posts-list {
@@ -23,10 +23,12 @@
   font-weight: 600;
   font-size: 16px;
   color: #424242;
-  padding: 20px; }
+  padding: 20px;
+  height: 50%; }
 
 .friends-list .friends-img img {
-  height: 40px; }
+  margin: auto;
+  height: 50%; }
 
 .no-friends {
   display: flex;
@@ -60,7 +62,7 @@
   border: 1px solid #e0e0e0;
   box-sizing: border-box;
   border-radius: 4px;
-  height: 8%; }
+  height: 6%; }
 
 .create-post > div {
   padding: 10px;
@@ -80,21 +82,24 @@
   border-top-left-radius: 3px; }
 
 #add-post-btn {
-  width: 15%;
+  width: 100%;
   height: 25%;
   float: right;
   top: 0px;
   background: #ef7917;
   border-radius: 3px;
   color: #fff;
-  font-size: 16px; }
+  font-size: 16px;
+  transition: transform 0.3s; }
 
 #add-post-btn:focus,
 .create-post textarea:focus {
   outline: none; }
 
 #add-post-btn:hover {
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: #dc4b4b;
+  transform: scale(1.1); }
 
 .post-wrapper {
   border: 1px solid #e0e0e0;

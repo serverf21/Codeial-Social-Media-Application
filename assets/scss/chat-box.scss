@@ -1,12 +1,46 @@
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+    transition: transform .2s; 
+  }  
+  .open-button:hover{
+    transform: scale(1.2);
+    
+  }
+
 #user-chat-box{
+    display: none;
     position: fixed;
     bottom: 10px;
     right: 10px;
-    border: 1px dashed gray;
-    height: 350px;
-    width: 300px;
-    padding: 5px;
+    height: 60vh;
+    width: 30vw;
+    padding: 1rem;
     box-shadow: 1px 1px 1px 1px lightgray;
+    background-color: lavender;
+    border-radius: 2%;
+
+    #popup-WrapperMini {
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        background-color: rgb(243, 11, 11);
+        /* position: absolute; */
+        top: 15px;
+        color: white;
+        font-size: 16px;
+        margin: auto;
+        /* right: 45px; */
+        cursor: pointer;
+    }
 
     #chat-messages-list{
         list-style: none;
@@ -31,7 +65,7 @@
             span{
                 display: inline-block;
                 padding: 15px;
-                background-color: #a0dcff;
+                background-color: rgb(144, 144, 234);
             }
         }
     }
@@ -42,10 +76,13 @@
         width: 100%;
         display: flex;
         flex-direction: row;
+        margin-bottom: 20px;
 
         #chat-message-input{
             height: 50%;
             width: 70%;
+            border: 2px solid grey;
+            border-radius: 5px;
         }
 
         #send-message{
@@ -55,6 +92,11 @@
             color:#fff;
             border: none;
             background: #58d258;
+            border-radius: 5px;
+            transition: transform .2s; 
+        }
+        #send-message:hover{
+            transform: scale(1.2);
         }
     }
 }

@@ -36,14 +36,16 @@ nav .nav-links ul {
   list-style-type: none; }
 
 nav .nav-links ul li {
-  padding: 0 4px; }
+  padding: 0 20px; }
 
 nav .nav-links ul li a {
   text-decoration: none;
-  color: #fff; }
+  color: #fff;
+  transition: transform 0.3s; }
 
 nav .nav-links ul li a:hover {
-  text-decoration: underline; }
+  text-decoration: underline;
+  font-size: 18px; }
 
 nav .nav-links ul li:hover {
   cursor: pointer; }

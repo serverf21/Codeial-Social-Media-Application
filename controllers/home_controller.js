@@ -49,7 +49,7 @@ module.exports.home = async function (request, response) {
       })
       .populate("likes");
 
-  
+
     let users = await User.find({});
 
     let user;
@@ -69,7 +69,7 @@ module.exports.home = async function (request, response) {
         });
     }
 
-    
+
 
     return response.render("home", {
       title: "Codeial | Home",

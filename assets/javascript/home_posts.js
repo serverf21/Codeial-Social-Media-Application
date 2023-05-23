@@ -1,3 +1,5 @@
+import PostComments from './posts_comments';
+
 {
   // method to submit the form data for new post using AJAX
   let createPost = function () {
@@ -12,10 +14,10 @@
         success: function (data) {
           let newPost = newPostDom(data.post);
           $("#posts-list-container").prepend(newPost);
-          deletePost($(" .delete-post-btn", newPost));
+          deletePost($(".delete-post-btn", newPost));
 
           // call the create comment class
-          new PostComments(data.post._id);
+          new PostComments(data.post_id);
 
           new Noty({
             theme: "relax",
@@ -87,6 +89,7 @@
       </div>`);
   };
 
+
   // method to delete a post from DOM
   let deletePost = function (deleteLink) {
     $(deleteLink).click(function (e) {
@@ -95,9 +98,10 @@
       $.ajax({
         type: "get",
         url: $(deleteLink).prop("href"),
+        // _method: 'DELETE',
         success: function (data) {
-          //console.log('data' , data)
-          $(`#post-${data.post_id}`).remove();
+          // console.log('data', data.data)
+          $(`#post-${data.data.post_id}`).remove();
           new Noty({
             theme: "relax",
             text: "Post Deleted",

@@ -3,7 +3,7 @@ const Comments = require("../models/comments");
 const commentsMailer = require("../mailer/comments_mailer");
 const Likes = require("../models/likes");
 const queue = require('../config/kue');
-const emailsWorker = require('../workers/comments_email_worker');
+// const emailsWorker = require('../workers/comments_email_worker');
 
 module.exports.addComment = async function (request, response) {
   try {
@@ -15,17 +15,19 @@ module.exports.addComment = async function (request, response) {
       user: request.user._id,
     });
 
-    comment = await comment.populate("user", "name email").execPopulate();
+
     post.comments.push(comment);
     post.save();
 
-    //commentsMailer.newComment(comment);
+    comment = await comment.populate("user", "name email");
 
-    let job = queue.create('emails' , comment).save(function(error){
-      if(error){
-        console.log('error in pushing mails to queue' , error);
-         return;
-        }
+    commentsMailer.newComment(comment);
+
+    let job = queue.create('emails', comment).save(function (error) {
+      if (error) {
+        console.log('error in pushing mails to queue', error);
+        return;
+      }
 
       console.log('job enqueued');
     })
@@ -51,7 +53,8 @@ module.exports.deleteComment = async function (request, response) {
     if (comment) {
       if (comment.user == request.user.id) {
         let postId = comment.post;
-        comment.remove();
+        let co = await Comments.deleteOne({ _id: request.params.id });
+        // comment.remove();
         let post = Posts.findByIdAndUpdate(postId, {
           $pull: { comments: request.params.id },
         });

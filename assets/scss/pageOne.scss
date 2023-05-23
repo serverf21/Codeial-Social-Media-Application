@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    background-color: rgb(58, 39, 96);
+    margin: auto;
+  }
+  .container {
+    display: flex;
+    height: 80vh;
+    width: 80vw;
+    margin: auto;
+  }
+  .container .left-image {
+    width: 50%;
+    margin: auto;
+  }
+  .container .left-image img {
+    height: 100%;
+  }
+  .container .right-content {
+    width: 50%;
+    margin-top: 5vh;
+    padding: auto;
+  }
+  .container .right-content h1 {
+    font-size: 10vh;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 100;
+    color: antiquewhite;
+  }
+
+  .container .right-content .buttons button {
+    border: none;
+    padding: 3%;
+    
+    border-radius: 10px;
+    margin: 2%;
+    font-size: 3vh;
+    transition: transform 0.2s;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  .container .right-content .buttons button a{
+    text-decoration: none;
+    color: rgb(58, 39, 96);
+  }
+  .container .right-content .buttons button:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+    background-color: yellow;
+  }
