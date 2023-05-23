@@ -15,6 +15,8 @@ Technology and Tools utilized -
 7. Chat Server - Socket IO
 8. DOM Manipulation and requests - AJAX and JQuery
 9. Deployment - AWS EC2 instance (t3.micro)
+10. Process Automation - GulpJS
+11. Simplified HTTP requests logging using - Morgan NPM logger
 
 Preview - 
 
